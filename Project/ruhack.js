@@ -9,6 +9,6 @@ var sum = function(a,b) {
 }
 
 
-var lettre(a){
+var lettre = function(a){
     return a; 
 }
