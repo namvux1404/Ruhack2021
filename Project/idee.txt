@@ -1,0 +1,8 @@
+Étape 1: Rentrer nos données (incluant la translation)
+Infos : Nom, prénom, age, date de naissance, localisation 
+
+Étape 2: Choisir dans la plage horaire l'endroit où tu veux te faire vacciner 
+Endroit où les vaccins on lieux, compter le #de gens qui se font vacciner à cette place, horaire
+ 
+Étape 3: La photo 
+déterminer avec AI la file d'attente 
