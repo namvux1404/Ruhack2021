@@ -7,3 +7,8 @@ var e = 1;
 var sum = function(a,b) {
     a+b;
 }
+
+
+var lettre(a){
+    return a; 
+}
