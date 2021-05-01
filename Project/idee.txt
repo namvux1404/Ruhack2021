@@ -1,5 +1,0 @@
-Étape 1: liste de localisation pour vaccin
-         + Infos : Nom, prénom, age, date de naissance, localisation 
- 
-Étape 2: La photo 
-déterminer avec AI la file d'attente 
