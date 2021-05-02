@@ -1,6 +1,8 @@
 import React, {Component, useState} from 'react'
 import '../App.css';
 import './map.css';
+import DataMap from './dataMap';
+import firebase from '../firebase';
 import { Map, GoogleApiWrapper, Marker, InfoWindow } from 'google-maps-react';
 //Source d'adresse : https://santemontreal.qc.ca/population/coronavirus-covid-19/vaccination/sites-vaccinations/#c51829
 
@@ -19,10 +21,11 @@ export class MapContainer extends Component {
         selectedPlace: {},
     }
 
-    onMarkerClick = (props, marker, e) =>
+    onMarkerClick = (props, marker,id, e) =>
     this.setState({
       selectedPlace: props,
       activeMarker: marker,
+      index: id,
       showingInfoWindow: true
     });
 
@@ -37,6 +40,8 @@ export class MapContainer extends Component {
 
     constructor(props) {
         super(props);
+
+
     
         //tableau des endroits de vaccination
         this.state = { 
@@ -61,8 +66,6 @@ export class MapContainer extends Component {
                   {lat: 45.50469, lng: -73.78452},            //Centre communautaire Gerry-Robertson
                   {lat: 45.49667, lng: -73.58888},            //Centre Uni de sante McGill - Hopital general de Montreal
                   {lat: 45.47282, lng: -73.60071}]            //Centre uni de sante McGill
-
-
         }
     }   
     
@@ -73,37 +76,41 @@ export class MapContainer extends Component {
                 lng: store.lng
             }}
             onClick={this.onMarkerClick}
-            name={'Kenyatta International Convention Centre'}
             />
-        
         })
+
     }
 
     render() {
-      return (
-        <Map
-          google={this.props.google}
-          zoom={11.5}
-          style={mapStyles}
-          initialCenter={
-            {
-              lat: 45.509060,
-              lng: -73.553360
+        
+        return (
+            <Map
+            google={this.props.google}
+            zoom={11.5}
+            style={mapStyles}
+            initialCenter={
+                {
+                lat: 45.509060,
+                lng: -73.553360
+                }
             }
-          }
-        >
-            {this.displayMarkers()}
-            <InfoWindow
-            marker={this.state.activeMarker}
-            visible={this.state.showingInfoWindow}
-            onClose={this.onClose}
             >
-            <div>
-                <h4>ALOOOO</h4>
-            </div>
-            </InfoWindow>
-        </Map>
-      );
+                {this.displayMarkers()}
+                <InfoWindow
+                marker={this.state.activeMarker}
+                visible={this.state.showingInfoWindow}
+                index={this.state.index}
+                onClose={this.onClose}
+                >
+                    <div>
+                        <h2>Hello</h2>
+                        <p>test</p>
+                        
+                    </div>
+                <DataMap />
+                </InfoWindow>
+            </Map>
+        );
     }
   }
   

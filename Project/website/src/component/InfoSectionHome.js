@@ -18,13 +18,7 @@ export default InfoSectionHome;
 */
 
 export default function InfoSectionHome() {
-    /*
-    constructor(props) {
-        super(props);
-        this.state = {
-            userTable: []   //table contient les users
-        };
-    };*/
+
     const [infoList, setInfo] = useState();
 
     useEffect(() => {
@@ -42,7 +36,7 @@ export default function InfoSectionHome() {
                     langage: users[i].Langage,
                 });
             }
-            console.log(info);
+            //console.log(info);
             setInfo(info);
         });
 
